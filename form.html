@@ -6,7 +6,9 @@
 
         </form>
         <script>
-            fetch('http://localhost:3000/clients')
+            const api = 'https://mike-client-database.herokuapp.com/'
+
+            fetch(api + '/clients')
             .then((result) => result.json())
             .then((data) => console.log(data))
             .catch((e) => console.log(e));
