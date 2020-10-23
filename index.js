@@ -26,6 +26,8 @@ const Client = mongoose.model('Client', {
 });
 
 const app = express();
+
+app.use(express.json());
 const port = process.env.PORT || 3000;
 
 
@@ -53,7 +55,9 @@ app.get('/clients/:id', async (req, res) => {
 });
 
 app.post('/clients', async (req, res) => {
+    console.log(req.body);
     const client = new Client(req.body);
+    
     try {
         await client.save();
         res.status(201).send(client);
@@ -74,7 +78,6 @@ app.delete('/clients/:id', async (req, res) => {
     }
 });
 
-app.use(express.json());
 
 app.get('/', (req, res) => {
     res.send('hello, friend');

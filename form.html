@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+    <title>Form</title>
+    <body>
+        <form>
+
+        </form>
+        <script>
+            fetch('http://localhost:3000/clients')
+            .then((result) => result.json())
+            .then((data) => console.log(data))
+            .catch((e) => console.log(e));
+
+        </script>
+    </body>
+</html>
